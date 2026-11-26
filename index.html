@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Animated background -->
+<div class="bg" aria-hidden="true">
+  <div class="gradient"></div>
+  <div class="layer" data-depth="14">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  </div>
+  <div class="waves"><i></i><i></i><i></i></div>
+  <div class="layer" data-depth="34">
+    <div class="obj sphere s1"></div><div class="obj sphere s2"></div>
+    <div class="obj metal m1"></div><div class="obj metal m2"></div>
+    <div class="obj shape sh1"></div><div class="obj shape sh2"></div>
+  </div>
+  <canvas id="particles"></canvas>
+  <div class="cursor-light"></div>
+</div>
+
+<main class="stage">
+  <section class="calc" aria-label="Calculator">
+    <div class="toolbar">
+      <button type="button" class="toggle" id="soundToggle" aria-pressed="false" aria-label="Sound effects off. Turn on">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><g class="waves-on"><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></g><path class="mute-x" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+      </button>
+      <button type="button" class="toggle" id="themeToggle" aria-label="Switch to light mode">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ico-moon"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></g><g class="ico-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></svg>
+      </button>
+    </div>
+
+    <div class="display" role="group" aria-label="Display">
+      <div class="prev" id="prev" aria-hidden="true"></div>
+      <div class="cur" id="cur" role="status" aria-live="polite" aria-atomic="true">0</div>
+    </div>
+
+    <div class="keys" id="keys">
+      <button type="button" class="key fn clear" data-k="ac" style="--i:0" aria-label="All clear">AC</button>
+      <button type="button" class="key fn" data-k="neg" style="--i:1" aria-label="Toggle positive or negative">±</button>
+      <button type="button" class="key fn" data-k="pct" style="--i:2" aria-label="Percent">%</button>
+      <button type="button" class="key op" data-k="/" style="--i:3" aria-label="Divide" aria-pressed="false">÷</button>
+
+      <button type="button" class="key num" data-k="7" style="--i:4">7</button>
+      <button type="button" class="key num" data-k="8" style="--i:5">8</button>
+      <button type="button" class="key num" data-k="9" style="--i:6">9</button>
+      <button type="button" class="key op" data-k="*" style="--i:7" aria-label="Multiply" aria-pressed="false">×</button>
+
+      <button type="button" class="key num" data-k="4" style="--i:8">4</button>
+      <button type="button" class="key num" data-k="5" style="--i:9">5</button>
+      <button type="button" class="key num" data-k="6" style="--i:10">6</button>
+      <button type="button" class="key op" data-k="-" style="--i:11" aria-label="Subtract" aria-pressed="false">−</button>
+
+      <button type="button" class="key num" data-k="1" style="--i:12">1</button>
+      <button type="button" class="key num" data-k="2" style="--i:13">2</button>
+      <button type="button" class="key num" data-k="3" style="--i:14">3</button>
+      <button type="button" class="key op" data-k="+" style="--i:15" aria-label="Add" aria-pressed="false">+</button>
+
+      <button type="button" class="key num" data-k="0" style="--i:16">0</button>
+      <button type="button" class="key num" data-k="." style="--i:17" aria-label="Decimal point">.</button>
+      <button type="button" class="key fn" data-k="back" style="--i:18" aria-label="Backspace">⌫</button>
+      <button type="button" class="key eq" data-k="=" style="--i:19" aria-label="Equals">=</button>
+    </div>
+  </section>
+
+  <footer class="credit">
+    <span class="credit-label">CREDITS BY</span>
+    <span class="credit-name">MARK LAURENCE BANDOY</span>
+    <span class="credit-rule" aria-hidden="true"></span>
+    <small class="credit-copy">© 2026 </small>
+  </footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
